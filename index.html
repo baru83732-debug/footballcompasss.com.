@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111d">
+<title>FootBall Compasss</title>
+<style>
+:root{--bg:#07111d;--panel:#101e2d;--panel2:#0b1724;--line:#26394d;--txt:#eef5fc;--muted:#91a4b8;--cyan:#55c7f2;--green:#39dba4;--gold:#e8bf65;--red:#ff737d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#10253a 0,#07111d 48%);color:var(--txt);font:14px/1.5 Inter,system-ui,Arial,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+header{position:sticky;top:0;z-index:5;background:#091725ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top{max-width:1120px;margin:auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px}.logo{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#1e947b,#1b6e9e);font-size:22px}
+.brand b{display:block;font-size:17px;letter-spacing:.4px}.brand small{color:var(--muted);font-size:10px;letter-spacing:1.4px}
+.pill{border:1px solid #286b5a;background:#10372f;color:var(--green);border-radius:30px;padding:6px 10px;font-size:11px;font-weight:700}
+main{max-width:1120px;margin:auto;padding:18px}.nav{display:flex;gap:8px;overflow:auto;padding:4px 0 15px}.nav button{white-space:nowrap;background:#122438;border:1px solid var(--line);color:#b9c9d8;padding:9px 13px;border-radius:10px}.nav button.active{background:#123c39;color:var(--green);border-color:#267b64}
+.card{background:linear-gradient(145deg,#122235,#0d1a28);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 12px 30px #0002}
+h1{font-size:24px;margin:0 0 5px}h2{font-size:17px;margin:22px 0 12px}h3{font-size:14px;margin:0 0 12px}.muted{color:var(--muted)}.tiny{font-size:11px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.wrap{flex-wrap:wrap}
+input,select{width:100%;background:#091725;border:1px solid #2b4258;color:var(--txt);border-radius:10px;padding:12px;outline:none}input:focus,select:focus{border-color:var(--cyan)}
+.btn{border:1px solid #2d806b;background:linear-gradient(135deg,#145744,#124b60);color:#eafff8;border-radius:10px;padding:11px 15px;font-weight:700}.btn.secondary{background:#14283c;border-color:#344b62;color:#dce9f5}.btn.danger{background:#3a2028;border-color:#713943;color:#ffc4c8}
+.auth{max-width:470px;margin:7vh auto}.auth .brand{margin-bottom:18px}.auth-grid{display:grid;gap:10px}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.notice{padding:11px 13px;border-radius:11px;background:#342c1c;border:1px solid #66552c;color:#f4d994;font-size:12px}
+.good{color:var(--green)}.blue{color:var(--cyan)}.gold{color:var(--gold)}
+.match{font-size:21px;font-weight:800;margin:14px 0}.meta{font-size:11px;color:var(--muted)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stat{background:#091725;border:1px solid #20364b;border-radius:11px;padding:12px 7px;text-align:center}.stat small{display:block;color:var(--muted);font-size:10px}.stat b{display:block;font-size:18px;margin-top:5px}
+.analysis{background:#0a1927;border:1px solid #263d52;border-radius:12px;padding:13px;margin:12px 0;color:#c5d2df;font-size:13px}
+.market{display:flex;justify-content:space-between;gap:12px;padding:11px 2px;border-bottom:1px solid #26394d;font-size:12px}.market:last-child{border:0}.market strong{text-align:right;color:#e9f3fc}.market-list{border-left:3px solid var(--cyan);padding-left:10px}.market-list.greenline{border-color:var(--green)}
+.tabs{display:flex;gap:7px;overflow:auto;margin:12px 0}.tabs button{white-space:nowrap;border:1px solid var(--line);background:#0a1927;color:#b8c8d7;border-radius:9px;padding:8px 11px}.tabs button.active{border-color:#267e69;color:var(--green);background:#10372f}
+.league{font-size:11px;color:var(--cyan);font-weight:800;letter-spacing:.5px}.tag{font-size:10px;color:var(--green);background:#10382f;padding:5px 8px;border-radius:20px}
+footer{text-align:center;color:#71869b;padding:28px 10px;font-size:11px}
+@media(max-width:620px){main{padding:12px}.top{padding:12px}.brand b{font-size:14px}.grid4{grid-template-columns:repeat(2,1fr)}.match{font-size:18px}.card{padding:13px}}
+</style>
+</head>
+<body>
+<header><div class="top">
+ <div class="brand"><div class="logo">⚽</div><div><b>FOOTBALL COMPASSS</b><small>ADVANCED FOOTBALL ANALYTICS</small></div></div>
+ <div class="row"><span class="pill">FREE ACCOUNT</span><button id="logoutBtn" class="btn secondary hidden">Keluar</button></div>
+</div></header>
+
+<section id="authView" class="auth card">
+ <div class="brand"><div class="logo">⚽</div><div><b>Selamat datang</b><small>AKUN FOOTBALL COMPASSS</small></div></div>
+ <h1 id="authTitle">Masuk ke akun</h1>
+ <p class="muted">Buat akun gratis atau masuk untuk membuka dashboard analisis.</p>
+ <div class="auth-grid">
+  <label class="tiny muted">Email<input id="email" type="email" autocomplete="email" placeholder="nama@email.com"></label>
+  <label class="tiny muted">Kata sandi<input id="password" type="password" autocomplete="current-password" placeholder="Minimal 6 karakter"></label>
+  <button id="authSubmit" class="btn">Masuk</button>
+  <button id="authSwitch" class="btn secondary">Belum punya akun? Daftar gratis</button>
+  <div id="authMsg" class="tiny muted" role="status">Mode demo lokal aktif sampai Supabase dikonfigurasi.</div>
+ </div>
+</section>
+
+<main id="appView" class="hidden">
+ <section class="card">
+  <div class="row wrap"><div><div class="league">PUSAT KONTROL ANALISIS</div><h1>Dashboard</h1><div class="muted tiny" id="welcome">Selamat datang</div></div><span class="pill">AKSES GRATIS</span></div>
+  <div class="tabs" id="mainTabs">
+   <button class="active" data-tab="matches">Pertandingan</button><button data-tab="analysis">Analisis</button><button data-tab="history">Riwayat</button><button data-tab="account">Akun</button>
+  </div>
+ </section>
+
+ <section id="tab-matches">
+  <div class="card">
+   <div class="row wrap"><div><h3>Jadwal & pencarian pertandingan</h3><div class="muted tiny">Data pertandingan akan terhubung ke API-Football pada tahap backend.</div></div><span class="tag">DEMO</span></div>
+   <div class="two"><input id="search" placeholder="Cari klub atau liga..."><select id="dateFilter"><option value="all">Semua tanggal contoh</option><option value="today">Hari ini</option></select></div>
+  </div>
+  <div id="matchList"></div>
+  <div class="notice">Data yang terlihat sekarang adalah data contoh/simulasi untuk memeriksa tampilan. Belum merupakan jadwal, statistik, odds, atau prediksi aktual.</div>
+ </section>
+
+ <section id="tab-analysis" class="hidden">
+  <div class="card"><div class="row"><div><div class="league">MATCH CENTER · CONTOH</div><h1 id="detailTitle">Brentford vs Everton</h1><div class="muted tiny">Premier League · contoh tampilan</div></div><span class="tag">PASAR LENGKAP</span></div>
+   <div class="analysis"><b>📊 Data valid 5 laga terakhir</b><br>Home: 3 menang · 1 seri · 1 kalah (contoh)<br>Away: 1 menang · 2 seri · 2 kalah (contoh)<br><br><b>📈 H2H & tren</b><br>Rata-rata corner dan tembakan akan dihitung dari pertandingan historis yang tersedia.<br><br><b>🧠 Analisis taktik</b><br>Analisis taktik hanya ditampilkan jika data pendukung tersedia.</div>
+   <div class="grid3"><div class="stat"><small>HOME 1</small><b>44.3%</b></div><div class="stat"><small>DRAW X</small><b>25.0%</b></div><div class="stat"><small>AWAY 2</small><b>30.7%</b></div></div>
+   <div class="analysis"><div class="row"><b>Poisson / Expected Goals</b><span class="blue">SIMULASI</span></div><div class="row"><span>xG Home 1.55 · xG Away 1.25</span><b>Skor contoh 1–1</b></div></div>
+  </div>
+  <h2>Semua pasar statistik</h2>
+  <div id="marketPanels"></div>
+  <div class="card"><h3>Rangkuman model</h3><p class="muted tiny">Probabilitas, confidence model, dan odds pasar adalah hal berbeda. Rekomendasi baru akan dihitung setelah data aktual dan model diuji.</p><div class="notice">Jangan menganggap angka simulasi sebagai saran taruhan atau jaminan hasil.</div></div>
+ </section>
+
+ <section id="tab-history" class="hidden"><div class="card"><h2>Riwayat analisis</h2><p class="muted">Riwayat analisis akun akan tersedia setelah database dipasang.</p><div id="historyList" class="tiny muted">Belum ada riwayat tersimpan.</div></div></section>
+ <section id="tab-account" class="hidden"><div class="card"><h2>Akun saya</h2><p id="accountEmail" class="muted"></p><p class="tiny muted">Akun ini memberi akses gratis ke dashboard. Fitur sinkronisasi lintas perangkat memerlukan konfigurasi Supabase.</p><button id="logoutBtn2" class="btn danger">Keluar dari akun</button></div></section>
+</main>
+<footer>FOOTBALL COMPASSS © 2026 · Statistik sepak bola · Gunakan data secara bertanggung jawab</footer>
+
+<script type="module">
+/*
+  SETUP AKUN:
+  1. Buat project di https://supabase.com
+  2. Salin Project URL dan anon/public key dari Project Settings > API.
+  3. Isi dua nilai di bawah ini.
+  Anon key memang boleh ada di frontend; jangan pernah taruh service_role key atau API-Football key di sini.
+*/
+const SUPABASE_URL = "ISI_SUPABASE_PROJECT_URL";
+const SUPABASE_ANON_KEY = "ISI_SUPABASE_ANON_PUBLIC_KEY";
+const configured = SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("ISI_") && !SUPABASE_ANON_KEY.includes("ISI_");
+
+const authView=document.getElementById("authView"),appView=document.getElementById("appView");
+const authMsg=document.getElementById("authMsg"),authTitle=document.getElementById("authTitle");
+const authSubmit=document.getElementById("authSubmit"),authSwitch=document.getElementById("authSwitch");
+let supabase=null,signup=false,localUser=null;
+
+const games=[
+ {league:"INGGRIS · PREMIER LEAGUE",home:"Brentford",away:"Everton",date:"Contoh jadwal",time:"03:00 WIB",form:"3M · 1S · 1K",shots:"25.8",corners:"11.0"},
+ {league:"SPANYOL · LA LIGA",home:"Levante",away:"Elche",date:"Contoh jadwal",time:"03:00 WIB",form:"Data contoh",shots:"23.8",corners:"9.9"}
+];
+const markets=[
+ ["🎯 SOT","9.2","5.0 / 4.2","Over 8.5 Total SOT"],
+ ["👟 Tembakan","25.8","14.0 / 11.8","Over 23.5 Total Tembakan"],
+ ["🥅 Goal Kick","16.0","7.3 / 8.7","Over 14.5 Goal Kick"],
+ ["🔴 Pelanggaran","21.6","10.0 / 11.6","Under 24.5 Pelanggaran"],
+ ["🚩 Offside","3.8","1.8 / 2.0","Over 2.5 Offside"],
+ ["🚩 Corner","11.0","6.2 / 4.8","Over 8.5 / 9.5 Corner"],
+ ["🟨 Kartu","3.5","—","Under 4.5 Kartu"],
+ ["⚽ Gol","2.8","1.55 / 1.25","Over/Under 1.5–4.5"],
+ ["🤝 BTTS","56.2%","Ya / Tidak","BTTS Yes / No"],
+ ["🧮 Poisson","1.55 / 1.25","Expected Goals","Distribusi skor"],
+ ["🏆 1X2","44.3 / 25 / 30.7","Home / Draw / Away","Probabilitas 1X2"]
+];
+function showApp(user){
+ authView.classList.add("hidden");appView.classList.remove("hidden");
+ document.getElementById("logoutBtn").classList.remove("hidden");
+ const email=user?.email||"Pengguna demo";
+ document.getElementById("welcome").textContent="Masuk sebagai "+email;
+ document.getElementById("accountEmail").textContent=email;
+}
+function showAuth(){appView.classList.add("hidden");authView.classList.remove("hidden");document.getElementById("logoutBtn").classList.add("hidden")}
+function renderGames(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const list=games.filter(g=>(g.home+" "+g.away+" "+g.league).toLowerCase().includes(q));
+ document.getElementById("matchList").innerHTML=list.map((g,i)=>`
+ <article class="card"><div class="row"><span class="league">#${i+1} · ${g.league}</span><span class="tag">PASAR LENGKAP</span></div>
+ <div class="meta">🕒 ${g.date} · ${g.time}</div><div class="match">${g.home} <span class="muted">vs</span> ${g.away}</div>
+ <div class="grid3"><div class="stat"><small>FORM HOME</small><b>${g.form}</b></div><div class="stat"><small>TEMBAKAN</small><b>${g.shots}</b></div><div class="stat"><small>CORNER</small><b>${g.corners}</b></div></div>
+ <div class="row" style="margin-top:13px"><span class="muted tiny">Data contoh · bukan live</span><button class="btn" data-open="${i}">Buka analisis</button></div></article>`).join("")||'<div class="card muted">Pertandingan tidak ditemukan.</div>';
+ document.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>{document.getElementById("detailTitle").textContent=games[+b.dataset.open].home+" vs "+games[+b.dataset.open].away;switchTab("analysis")}));
+}
+function renderMarkets(){
+ document.getElementById("marketPanels").innerHTML=markets.map((m,i)=>`<div class="card"><div class="row"><h3>${m[0]}</h3><span class="tag">PASAR ${String(i+1).padStart(2,"0")}</span></div><div class="market-list"><div class="market"><span>Rata-rata contoh</span><strong>${m[1]}</strong></div><div class="market"><span>Rincian</span><strong>${m[2]}</strong></div><div class="market"><span>Jenis analisis</span><strong class="blue">${m[3]}</strong></div></div></div>`).join("");
+}
+function switchTab(tab){
+ document.querySelectorAll('[id^="tab-"]').forEach(el=>el.classList.add("hidden"));
+ document.getElementById("tab-"+tab).classList.remove("hidden");
+ document.querySelectorAll("#mainTabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("mainTabs").addEventListener("click",e=>{if(e.target.dataset.tab)switchTab(e.target.dataset.tab)});
+document.getElementById("search").addEventListener("input",renderGames);
+renderGames();renderMarkets();
+
+if(configured){
+ const {createClient}=await import("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm");
+ supabase=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+ const {data:{session}}=await supabase.auth.getSession();
+ if(session)showApp(session.user);
+ supabase.auth.onAuthStateChange((_event,session)=>session?showApp(session.user):showAuth());
+ authMsg.textContent="Autentikasi Supabase siap. Daftar atau masuk dengan email.";
+}else{
+ authMsg.textContent="Mode demo lokal. Untuk akun sungguhan yang aman dan tersinkron, isi konfigurasi Supabase terlebih dahulu.";
+}
+authSwitch.addEventListener("click",()=>{signup=!signup;authTitle.textContent=signup?"Buat akun gratis":"Masuk ke akun";authSubmit.textContent=signup?"Daftar gratis":"Masuk";authSwitch.textContent=signup?"Sudah punya akun? Masuk":"Belum punya akun? Daftar gratis"});
+authSubmit.addEventListener("click",async()=>{
+ const email=document.getElementById("email").value.trim(),password=document.getElementById("password").value;
+ if(!email||password.length<6){authMsg.textContent="Masukkan email valid dan kata sandi minimal 6 karakter.";return}
+ authSubmit.disabled=true;
+ try{
+  if(supabase){
+   const result=signup?await supabase.auth.signUp({email,password}):await supabase.auth.signInWithPassword({email,password});
+   if(result.error)throw result.error;
+   authMsg.textContent=signup?"Pendaftaran berhasil. Periksa email jika konfirmasi email diaktifkan.":"Berhasil masuk.";
+   if(result.data.user&&!result.data.session&&signup)authMsg.textContent="Akun dibuat. Periksa email untuk konfirmasi sebelum masuk.";
+   else if(result.data.session)showApp(result.data.user);
+  }else{
+   // Local preview only. This does not create a secure or persistent account.
+   localUser={email};showApp(localUser);
+   authMsg.textContent="Masuk demo berhasil. Ini bukan akun sungguhan dan tidak tersimpan di server.";
+  }
+ }catch(err){authMsg.textContent=err.message||"Gagal masuk. Periksa kembali data akun."}
+ finally{authSubmit.disabled=false}
+});
+async function logout(){if(supabase)await supabase.auth.signOut();else localUser=null;showAuth()}
+document.getElementById("logoutBtn").addEventListener("click",logout);
+document.getElementById("logoutBtn2").addEventListener("click",logout);
+</script>
+</body></html>
